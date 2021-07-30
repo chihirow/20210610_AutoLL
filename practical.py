@@ -46,7 +46,7 @@ def main(f_data, n_gpu):
         A = nx.linalg.graphmatrix.adjacency_matrix(G).toarray()
         n_batch0 = 3000
         f_us = True
-    fig_size = np.array([15, 15])
+    fig_size = np.array([6, 6])
     # ---------------------------------------------------------------------------------------------
     lr = 1e-2
     lambda_reg = 1e-10

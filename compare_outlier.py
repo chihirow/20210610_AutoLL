@@ -60,8 +60,8 @@ def main(f_directed, n_gpu):  # f_directed: 0: undirected, 1: directed
     n_fig = p_outlier_list.shape[0]
     n_col_fig = 5
     n_row_fig = n_fig // n_col_fig
-    fig_size_A = [6.5 * n_col_fig, 6 * n_row_fig]
-    plt.rcParams["font.size"] = 18
+    fig_size_A = [3.3 * n_col_fig, 3.2 * n_row_fig]
+    plt.rcParams["font.size"] = 5
     fig_A_bar = plt.figure(figsize=(fig_size_A[0], fig_size_A[1]))
     fig_A = plt.figure(figsize=(fig_size_A[0], fig_size_A[1]))
     fig_A_deeptmr = plt.figure(figsize=(fig_size_A[0], fig_size_A[1]))
@@ -130,7 +130,7 @@ def main(f_directed, n_gpu):  # f_directed: 0: undirected, 1: directed
                 cmn.select_order(order_mds, P, P_bar)
 
             if m == 0:
-                pr.plot_loss(loss_all, 'outlier_' + str_directed + '_' + str(k + 1))  # Plot training loss
+                pr.plot_loss(loss_all, str_directed + '_' + str(k + 1))  # Plot training loss
                 cp.plot_A_sub(A_bar, r'Matrix $\bar{A}$,' + '\n' + r'$t=' + str(k + 1) + r'$',
                               'compare_' + str_directed + '_input',
                               clr_matrix, n_row_fig, n_col_fig, k + 1, fig_A_bar.number)

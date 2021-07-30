@@ -20,10 +20,11 @@ def plot_A_sub(A, str_title, str_file, clr_matrix, n_row_fig, n_col_fig, idx_fig
     plt.imshow(A, cmap=clr_matrix, vmin=0, vmax=1, interpolation='none')
     plt.tick_params(labelbottom=False, labelleft=False, labelright=False, labeltop=False)
     plt.tick_params(bottom=False, left=False, right=False, top=False)
-    plt.colorbar(ticks=np.arange(0, 1.1, 0.2))
+    cbar = plt.colorbar(ticks=np.arange(0, 1.1, 0.2))
+    cbar.ax.tick_params(labelsize=15)
     plt.xlim([-0.5, p - 0.5])
     plt.ylim([-0.5, n - 0.5])
-    plt.title(str_title)
+    plt.title(str_title, fontsize=15)
     plt.gca().invert_yaxis()
     plt.savefig('result/A_' + str_file + '.png', bbox_inches='tight')
     plt.savefig('result/A_' + str_file + '.eps', bbox_inches='tight')
@@ -42,18 +43,18 @@ def main(f_directed, n_gpu):  # f_directed: 0: undirected, 1: directed
 
     ################################################################################################
     n_replicate = 10
-    n_replicate_autoll = 10  # 5  # No. of trials for training DNN with the same data matrix
+    n_replicate_autoll = 10  # No. of trials for training DNN with the same data matrix
     n_iter_last = 100  # For each data, choose the model with minimum mean error in the last n_iter_last iterations.
     n = 120
     B = np.array([0.9, 0.1])
     S_list = np.arange(0.03, 0.31, 0.03)
     lr = 1e-2
-    n_epoch = 200  # 500
+    n_epoch = 200
     lambda_reg = 1e-10  # Ridge regularization hyperparameter
     n_batch0 = 200
     # -------------------------------------------------------------------------------------------
     if f_directed == 0:  # undirected
-        n_units_in = np.array([n, 10, 1])  # 10
+        n_units_in = np.array([n, 10, 1])
         n_units_out = np.array([2, 10, 1])
         str_directed = 'u'
     else:  # directed
@@ -76,8 +77,10 @@ def main(f_directed, n_gpu):  # f_directed: 0: undirected, 1: directed
     n_fig = S_list.shape[0]
     n_col_fig = 5
     n_row_fig = n_fig // n_col_fig
-    fig_size_A = [6.5 * n_col_fig, 6 * n_row_fig]
-    plt.rcParams["font.size"] = 18
+    fig_size_A = [3.3 * n_col_fig, 3.2 * n_row_fig]
+    plt.rcParams["font.size"] = 5
+    # fig_size_A = [6.5 * n_col_fig, 6 * n_row_fig]
+    # plt.rcParams["font.size"] = 18
     fig_A_bar = plt.figure(figsize=(fig_size_A[0], fig_size_A[1]))
     fig_A = plt.figure(figsize=(fig_size_A[0], fig_size_A[1]))
     fig_A_deeptmr = plt.figure(figsize=(fig_size_A[0], fig_size_A[1]))

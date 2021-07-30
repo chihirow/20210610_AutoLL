@@ -73,7 +73,7 @@ def plot_A_ylabel(color_y1, color_y0, str_class, str_file):
 
 
 def plot_A_practical(A, fig_size, clr_matrix, str_file, str_title):
-    plt.rcParams["font.size"] = 40
+    plt.rcParams["font.size"] = 20
     plt.figure(figsize=(fig_size[0], fig_size[1]))
     plt.imshow(A, cmap=clr_matrix, aspect='auto', interpolation='none', vmin=0, vmax=1)
     plt.colorbar(ticks=np.arange(0, 1.1, 0.2))
