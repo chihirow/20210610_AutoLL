@@ -78,8 +78,10 @@ def mr_pca_row(A):  # [Friendly2002]
         A_copy[i, :] = (A_copy[i, :] - np.mean(A_copy[i, :])) / np.std(A_copy[i, :] + 1e-5)
     R = (1 / p) * np.matmul(A_copy, A_copy.T)
     _, _, U = np.linalg.svd(R, full_matrices=True)
-    u1 = U[:, 0]
-    u2 = U[:, 1]
+    # u1 = U[:, 0]
+    # u2 = U[:, 1]
+    u1 = U[0, :]  # 2026/2/4
+    u2 = U[1, :]  # 2026/2/4
     alpha = np.zeros(n)  # -pi/2 <= <= 3/2 pi
     for i in range(n):
         if u1[i] <= 0:
@@ -103,8 +105,10 @@ def mr_pca_row(A):  # [Friendly2002]
 
 def mr_svd(A):
     U, D, V = np.linalg.svd(A, full_matrices=True)
-    u1 = U[0, :]
-    v1 = V[:, 0]
+    # u1 = U[0, :]
+    # v1 = V[:, 0]
+    u1 = U[:, 0]  # 2026/2/4
+    v1 = V[0, :]  # 2026/2/4
     idx_row = np.argsort(u1)
     idx_col = np.argsort(v1)
     A_approx = D[0] * np.matmul(u1[:, np.newaxis], v1[np.newaxis, :])  # rank-one approximation of A
