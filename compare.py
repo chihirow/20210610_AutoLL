@@ -28,6 +28,7 @@ def plot_A_sub(A, str_title, str_file, clr_matrix, n_row_fig, n_col_fig, idx_fig
     plt.gca().invert_yaxis()
     plt.savefig('result/A_' + str_file + '.png', bbox_inches='tight')
     plt.savefig('result/A_' + str_file + '.eps', bbox_inches='tight')
+    plt.savefig('result/A_' + str_file + '.pdf', bbox_inches='tight')  # 2026/2/6
     # plt.close()
 
 

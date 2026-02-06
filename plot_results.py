@@ -111,9 +111,11 @@ def plot_compare_mean_std(S_list, err, err_pca, err_svd, err_mds, f_ylog, str_di
     if f_ylog:
         plt.savefig('result/compare_mean_ylog_' + str_directed + '.png', bbox_inches='tight')
         plt.savefig('result/compare_mean_ylog_' + str_directed + '.eps', bbox_inches='tight')
+        plt.savefig('result/compare_mean_ylog_' + str_directed + '.pdf', bbox_inches='tight')  # 2026/2/6
     else:
         plt.savefig('result/compare_mean_' + str_directed + '.png', bbox_inches='tight')
         plt.savefig('result/compare_mean_' + str_directed + '.eps', bbox_inches='tight')
+        plt.savefig('result/compare_mean_' + str_directed + '.pdf', bbox_inches='tight')  # 2026/2/6
     plt.close()
 
 
@@ -185,7 +187,9 @@ def plot_compare_scatter(S_list, err, err_pca, err_svd, err_mds, f_ylog, str_dir
     if f_ylog:
         plt.savefig('result/compare_ylog_' + str_directed + '.png', bbox_inches='tight')
         plt.savefig('result/compare_ylog_' + str_directed + '.eps', bbox_inches='tight')
+        plt.savefig('result/compare_ylog_' + str_directed + '.pdf', bbox_inches='tight')  # 2026/2/6
     else:
         plt.savefig('result/compare_' + str_directed + '.png', bbox_inches='tight')
         plt.savefig('result/compare_' + str_directed + '.eps', bbox_inches='tight')
+        plt.savefig('result/compare_' + str_directed + '.pdf', bbox_inches='tight')  # 2026/2/6
     plt.close()
